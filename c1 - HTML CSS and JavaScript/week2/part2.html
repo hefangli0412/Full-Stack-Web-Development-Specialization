@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script>
+    // global variable
+    var colors = ["blue", "cyan", "gold", "gray", "green", "magenta", "orange", "red", "white", "yellow"];
+    var select_color;
+    //
+    function play_game() {
+      // generate a random color;
+      select_color = pick_random_number();
+
+      // show the answer at the start
+      alert("The answer is: " + select_color);
+      
+      var found = false;
+      var count = 0;
+      while (!found) {
+        count++;
+
+        // get guess color from player
+        var guess_color;
+        guess_color = prompt("I am thinking of one of these colors:\n\n" + colors.join(", ") + "\n\nWhat color am I thinking of?");
+        var is_in = can_find_color(guess_color);
+        if (!is_in) {
+          alert("Sorry, I don't recognize your color.\n\nPlease try again.");
+        } else if (guess_color > select_color) {
+          alert("Sorry, your guess is not correct!\n\nHint: your color is alphabetically higher than mine.\n\nPlease try again.");
+        } else if (guess_color < select_color){
+          alert("Sorry, your guess is not correct!\n\nHint: your color is alphabetically lower than mine.\n\nPlease try again.");
+        } else  { // guess_color == select_color
+          document.body.style.background = select_color;
+          alert("Congratulations! You have guessed the color!\n\nIt took you " + count + " guesses to finish the game!\n\nYou can see the color in the background.");
+          found = true;
+        }
+      }
+
+    }
+
+    function pick_random_number() {
+      var len = colors.length;
+      var random_number = Math.floor(Math.random() * len);
+      return colors[random_number];
+    }
+
+    function can_find_color(target_color) {
+      for (var i = 0; i < colors.length; i++) {
+        if (colors[i] == target_color) {
+          return true;
+        }
+      }
+      return false;
+    }
+  </script>
+</head>
+<body onload="play_game()">
+</body>
+</html>

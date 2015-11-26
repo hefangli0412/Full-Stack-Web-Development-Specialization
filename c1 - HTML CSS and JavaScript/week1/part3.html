@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Dating Website</title>
+    <style>
+    fieldset {
+      background: lightyellow;
+      border:10px solid yellow;
+      margin-bottom: 10px;
+      width: 720px
+    }
+    .HFLTopRight {
+      width: 180px;
+      display:inline-block;
+      text-align: right
+    }
+    .HFLAutoWidth {
+      width: auto
+    }
+    .HFLIndicatorLeft {
+      width: 60px;
+      display: inline-block;
+      text-align: center;
+      background: darkred;
+      color: white;
+      font-weight: lighter;
+    }
+    .HFLIndicatorRight {
+      width: 60px;
+      display: inline-block;
+      text-align: center;
+      background: purple;
+      color: white;
+      font-weight: lighter;
+    }
+    textarea {
+      width: 360px;
+      height: 50px
+    }
+    label:hover {
+      font-size: 40px
+    }
+    input:hover {
+      font-size: 40px
+    }
+    </style>
+  </head>
+  <body>
+    <h2>Please Enter Your Details For Our Dating Website!</h2>
+    <form action="https://ihome.ust.hk/~rossiter/cgi-bin/show_everything.php"
+    method="post" enctype="multipart/form-data">
+
+      <fieldset>
+        <legend>Your face</legend>
+        <label class="HFLTopRight" for="avatar">Your image:</label>
+        <input type="file" id="avatar" name="avatar" required><br>
+        <label class="HFLTopRight" for="preview">Image preview:</label>
+        <img id="preview">
+      </fieldset> <br>
+
+      <fieldset>
+        <legend>Your general details</legend>
+        <label class="HFLTopRight" for="name">Name:</label>
+        <input type="text" id="name" name="name" placeholder="Your full name" required><br>
+        <label class="HFLTopRight" for="gender">Gender:</label>
+        <input class="HFLAutoWidth" type="radio" id="gender" name="gender" value="male" required>Male
+        <input class="HFLAutoWidth" type="radio" id="gender" name="gender" value="female" required>Female <br>
+        <label class="HFLTopRight" for="age">Age:</label>
+        <input type="number" id="age" name="age" value="18" required><br>
+        <label class="HFLTopRight" for="birthday">Date of birth:</label>
+        <input type="date" id="birthday" name="birthday"><br>
+        <label class="HFLTopRight" for="color">Favorite color:</label>
+        <input type="color" id="color" name="color"><br>
+        <label class="HFLTopRight" for="contry">Which country:</label>
+        <select name="select" id="contry" name="contry">
+          <option value="none"></option>
+          <option value="ch">America</option>
+          <option value="us">China</option>
+          <option value="ja">Japan</option>
+          <option value="th">Thailand</option>
+          <option value="uk">United Kingdom</option>
+        </select>
+      </fieldset> <br>
+
+      <fieldset>
+        <legend>Your Indicators</legend>
+        <label class="HFLTopRight" for="height">Height:</label>
+        <label class="HFLIndicatorLeft" for="height">Short</label>
+        <input type="range" min="0" max="100" id="height" name="height">
+        <label class="HFLIndicatorRight" for="height">Tall</label><br>
+        <label class="HFLTopRight" for="salary">Salary:</label>
+        <label class="HFLIndicatorLeft" for="salary">Poor</label>
+        <input type="range" min="0" max="100" id="salary" name="salary">
+        <label class="HFLIndicatorRight" for="salary">Rich</label><br>
+      </fieldset> <br>
+
+      <fieldset>
+        <legend>Your Contact Information</legend>
+        <label class="HFLTopRight" for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br>
+        <label class="HFLTopRight" for="mobile">Mobile:</label>
+        <input type="tel" id="mobile" name="mobile"><br>
+        <label class="HFLTopRight" for="address">Address:</label>
+        <textarea name="name" rows="2" cols="30" id="address" name="address"></textarea><br>
+        <label class="HFLTopRight" for="contactMethod">Method to contact you:</label>
+        <input class="HFLAutoWidth" type="checkbox" id="contactMethod" name="contactMethod" value="email">Email
+        <input class="HFLAutoWidth" type="checkbox" id="contactMethod" name="contactMethod" value="whatsapp">Whatsapp
+        <input class="HFLAutoWidth" type="checkbox" id="contactMethod" name="contactMethod" value="inappChat">In-app chat<br>
+      </fieldset> <br>
+
+      <input type="submit">
+    </form>
+
+    <script src="https://www.cse.ust.hk/~rossiter/dating_web_site.js"></script>
+  </body>
+</html>
