@@ -1,0 +1,22 @@
+{
+  "name": "conFusion",
+  "homepage": "https://github.com/hefangli0412/Full-Stack-Web-Development-Specialization",
+  "authors": [
+    "Hefang Li <hefangli0412@gmail.com>"
+  ],
+  "description": "Website for an awesome restaurant",
+  "main": "index.html",
+  "moduleType": [],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.6",
+    "font-awesome": "~4.5.0"
+  }
+}
