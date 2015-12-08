@@ -46,17 +46,14 @@
             </div>
             
             <div class="col-xs-9 col-xs-offset-1">
-                <br>
-                <label style="font-size: 120%">Customer Comments</label>&nbsp;&nbsp;&nbsp;&nbsp;Sort by: <input type="text" ng-model="orderText"></p>
-                <ul class="media-list">
-                    <li class="media" ng-repeat="comment in dish.comments | orderBy:orderText">
-                    <blockquote>
-                        <p>{{comment.rating}} stars</p>
-                        <p>{{comment.comment}}</p>
-                        <footer>{{comment.author}}, {{comment.date | date}}</footer>
-                    </blockquote>
-                    </li>
-                </ul>
+                <h3 style="display: inline-block; margin-right: 1em">Customer comments</h3>
+                <span>Sort by :</span>
+                <input type="text" ng-model="orderText">
+                <blockquote ng-repeat="comment in dish.comments | orderBy:orderText">
+                    <p>{{comment.rating}} stars</p>
+                    <p>{{comment.comment}}</p>
+                    <footer>{{comment.author}}, {{comment.date | date}}</footer>
+                </blockquote>
             </div>
         </div>
     </div>
