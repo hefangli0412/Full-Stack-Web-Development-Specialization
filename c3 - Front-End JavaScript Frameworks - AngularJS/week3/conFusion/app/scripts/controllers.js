@@ -100,13 +100,14 @@ angular.module('confusionApp')
             
             $scope.featuredDish = featuredDish;
             
-            var promotions = menuFactory.getPromotions();
+            var featuredPromotion = menuFactory.getPromotion(0);
             
-            $scope.promotions = promotions;
+            $scope.featuredPromotion = featuredPromotion;
             
-            var ECs = corporateFactory.getECs();
+            var executiveChef = corporateFactory.getLeader(3);
             
-            $scope.ECs = ECs;
+            $scope.executiveChef = executiveChef;
+            
         }])
 
         .controller('AboutController', ['$scope', 'corporateFactory', function($scope, corporateFactory) {

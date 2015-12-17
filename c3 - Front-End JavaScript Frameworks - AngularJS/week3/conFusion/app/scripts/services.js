@@ -200,14 +200,10 @@ angular.module('confusionApp')
 
             // implement a function named getPromotion
             // that returns a selected promotion.
-            this.getPromotions = function(){
-
-                return promotions;
-
-            };
             this.getPromotion = function (index) {
 
                 return promotions[index];
+                
             };
                         
         })
@@ -260,19 +256,9 @@ angular.module('confusionApp')
             corpfac.getLeader = function (index) {
 
                 return leadership[index];
+                
             };
     
-            corpfac.getECs = function() {
-                var ECs = [];
-                for (var index = 0; index < leadership.length; index++) {
-                    if (leadership[index].abbr == "EC") {
-                        ECs.push(leadership[index]);
-                    }
-                }
-                
-                return ECs;
-            };
-
             return corpfac;
         })
 
