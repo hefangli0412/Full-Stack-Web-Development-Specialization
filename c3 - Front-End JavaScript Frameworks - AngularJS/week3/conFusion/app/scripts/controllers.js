@@ -9,6 +9,7 @@ angular.module('confusionApp')
             $scope.showDetails = false;
 
             $scope.dishes= menuFactory.getDishes();
+
                         
             $scope.select = function(setTab) {
                 $scope.tab = setTab;
@@ -67,34 +68,53 @@ angular.module('confusionApp')
             };
         }])
 
-        .controller('DishDetailController', ['$scope', '$routeParams', 'menuFactory', function($scope, $routeParams, menuFactory) {                  
-            
-            var dish= menuFactory.getDish(parseInt($routeParams.id,10));
+        .controller('DishDetailController', ['$scope', '$stateParams', 'menuFactory', function($scope, $stateParams, menuFactory) {
+
+            var dish= menuFactory.getDish(parseInt($stateParams.id,10));
             
             $scope.dish = dish;
+            
         }])
 
         .controller('DishCommentController', ['$scope', function($scope) {
             
-                //Step 1: Create a JavaScript object to hold the comment from the form
-                $scope.currentComment = {author:"", rating:5, comment:"", date:""};
-
-                $scope.submitComment = function () {
-
-                    //Step 2: This is how you record the date
-                    $scope.currentComment.date = new Date().toISOString();
-
-                    // Step 3: Push your comment into the dish's comment array
-                    // Converting rating value from string to integer so that sorting by rating works!
-                    $scope.currentComment.rating = parseInt($scope.currentComment.rating);
-                    $scope.dish.comments.push($scope.currentComment);
-
-                    //Step 4: reset your form to pristine
-                    $scope.commentForm.$setPristine();
-
-                    //Step 5: reset your JavaScript object that holds your comment
-                    $scope.currentComment = {author:"", rating:5, comment:"", date:""};
+            $scope.mycomment = {rating:5, comment:"", author:"", date:""};
+            
+            $scope.submitComment = function () {
+                
+                $scope.mycomment.date = new Date().toISOString();
+                console.log($scope.mycomment);
+                
+                $scope.dish.comments.push($scope.mycomment);
+                
+                $scope.commentForm.$setPristine();
+                
+                $scope.mycomment = {rating:5, comment:"", author:"", date:""};
             };
+        }])
+
+        // implement the IndexController and AboutController here
+        .controller('IndexController', ['$scope', 'menuFactory', 'corporateFactory', function($scope, menuFactory, corporateFactory) {
+            
+            var featuredDish = menuFactory.getDish(0);
+            
+            $scope.featuredDish = featuredDish;
+            
+            var promotions = menuFactory.getPromotions();
+            
+            $scope.promotions = promotions;
+            
+            var ECs = corporateFactory.getECs();
+            
+            $scope.ECs = ECs;
+        }])
+
+        .controller('AboutController', ['$scope', 'corporateFactory', function($scope, corporateFactory) {
+
+            var leaders = corporateFactory.getLeaders();
+            
+            $scope.leaders = leaders;
+            
         }])
 
 ;
