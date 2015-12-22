@@ -8,7 +8,7 @@
         <div class="col-xs-12 col-sm-9 col-sm-pull-3"> 
             <!-- Featured Dish -->
             <div ng-if="!showDish">
-                <h3>{{message}}</h3>
+                <h3>{{dishMessage}}</h3>
             </div>
             <div class="media" ng-if="showDish">
                 <div class="media-left media-middle">
@@ -34,7 +34,10 @@
         </div>
         <div class="col-xs-12 col-sm-9">  
             <!-- Featured Promotion -->
-            <div class="media">
+            <div ng-if="!showProm">
+                <h3>{{promMessage}}</h3>
+            </div>
+            <div class="media" ng-if="showProm">
                 <div class="media-body">
                     <h2 class="media-heading">{{promotion.name}}
                      <span class="label label-danger">{{promotion.label}}</span>
@@ -56,15 +59,18 @@
         </div>
         <div class="col-xs-12 col-sm-9 col-sm-pull-3">
             <!-- Executive Chef -->
-            <div class="media">
+            <div ng-if="!showLeader">
+                <h3>{{leaderMessage}}</h3>
+            </div>
+            <div class="media" ng-if="showLeader">
                <div class="media-left media-middle">
-                    <img class="media-object img-thumbnail" src={{leaders.image}} alt="Executive Chef">
+                    <img class="media-object img-thumbnail" src={{leader.image}} alt="Executive Chef">
                 </div>
 
                <div class="media-body">
-                    <h2 class="media-heading">{{leaders.name}}<font size="3" color="gray"> {{leaders.designation}}</font>
+                    <h2 class="media-heading">{{leader.name}}<font size="3" color="gray"> {{leader.designation}}</font>
                     </h2>
-                    <p>{{leaders.description}}</p>
+                    <p>{{leader.description}}</p>
                 </div>
             </div>
         </div>
